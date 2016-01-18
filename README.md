@@ -1,4 +1,4 @@
-# esp2866_12E_workshop
+# ESP2866_12E Workshop
 Workshop exercises for the ESP2866 12E (NodeMCU 1.0)
 
 This workshop is based around using Arduino on the ESP2866 12E versus the NodeMCU (Lua) build that comes on it from the factory.
