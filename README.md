@@ -32,16 +32,39 @@ http://arduino.esp8266.com/staging/package_esp8266com_index.json
 
 6. Port must be /dev/cu.wch* etc. as is written in the product description (maybe you should add drivers that are listed there.) 
 
-7. Open the “blink” sketch.  Sketch->Upload.  Verify the lights are blinking.  Congrats you have your first sketch running
-	NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  On Mac cache is in /Users/<username>/Library/Arduino15 (just delete the directory
+7. Let's do the HelloWorld of the embedded world.
+	a. Under /exercises in this repository, open the “/dualblink/dualblink.ino” sketch.  
+	b. From the Arduino menu select Sketch->Upload.  
+	c. Verify the lights are blinking.  Congrats you have your first sketch running
+	NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  
+	On Mac cache is in /Users/<username>/Library/Arduino15 (just delete the directory
 
-8. Now let’s get a little more tricky.  We are going to try to connect to Wifi.  Open the “Wifi” sketch.  Open the Serial Monitor (magnifying glass icon in upper right of code window).  Sketch->Upload.  Verify the output says connected.
+8. Now let’s get connected to your local wifi router.  NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.  
+	a. Under /exercises in this repository, open the “/wificonnect/wificonnect.ino” sketch.
+	b. Open the Serial Monitor (magnifying glass icon in upper right of code window).
+	c. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
+	d. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+	e. Verify the output in the Serial Monitor window says connected.
 
-9. Now setup your Firebase account.  Create a quick piece of test data - testkey=testvalue
-9a. Pull down the SHA fingerprint for your firebase url: https://www.grc.com/fingerprints.htm
-9b. Verify Firebase works curl --trace - -X POST -d '{ "key1":"Ru", "key2": "Pa", "key4" : "You" }' https://crackling-heat-8632.firebaseio.com/putex.json
+9. Now let's setup your Firebase account.  
+  	a. Note your firebase host name (not the full url just the host name)
+	b. In the firebase console, clink the Data icon on the left.  Hover over the top node showing in the tree view and Click "+" to add a new key and value pair  - name:"test_get" and value:"testgetvalue"
+	c. Pull down the SHA fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm
+	d. Verify that Firebase works for both GET and POST
+		curl --trace - -X GET https://<yourfirebaseurl>/test_get.json
+		curl --trace - -X POST -d '{ "postkey":"postvalue"}' https://<yourfirebaseurl>/test_get.json
 
-10. Now open the “Firebase” sketch and enter the right host, port, fingerprint, and url.  Open the Serial Monitor.  Sketch->Upload.  Verify the output = testvalue
+10. Now let's test HTTP GET and HTTP POST to an online backend as a service provider called firebase.
+	a. Under /exercises in this repository, open the “/httprequests/httprequests.ino” sketch.
+	b. Open the Serial Monitor (magnifying glass icon in upper right of code window).
+	c. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
+	d. If you are using Firebase as outlined in step 9 above, then in your open sketch set BAAS_HOST to the firebase host name that is associate with your account.  NOTE: You may also need to set the Hexadecimal BAAS_FINGERPRINT variable to be the Fingerprint you obtained in 9c (if the SSL cert has changed).
+	e. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+	f. Verify the output in the Serial Monitor window shows a successful GET request as well as POST request.
 
-11. Now lets write to Firebase in a loop.  Open Sketch "Firebase post"
+11. Now lets read from our sensor.
+
+12. Now lets write what we read from the sensor to Firebase in a loop.
+
+13. Now let's do something useful with the data we are sending up to Firebase
 
