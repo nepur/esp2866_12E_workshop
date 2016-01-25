@@ -17,7 +17,8 @@ Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 * In the Arduino menu select Preferences and enter the following url: `http://arduino.esp8266.com/staging/package_esp8266com_index.json`  ~~http://arduino.esp8266.com/stable/package_esp8266com_index.json~~ in the Additional Boards Manager URL's box.  ![Board JSON](content/BSPjsonurl.png) 
 * Save and close the dialog
 * In the Arduino IDE goto Tools->Boards->'Board Manager' and then in list scroll down and select esp8266 and choose install. ![BoardManager](content/ESPBSP.png)
-* Then restart the IDE and select the Tools->Boards->'nodeMCU 1.0'  (for the bangood board or others per what you have selected) ![NodeMCU1](content/NodeMCU1.png)
+* Make sure to restart the IDE
+* Make sure to select the proper board.  Select the Tools->Boards->'nodeMCU 1.0'  (for the bangood board or others per what you have selected) ![NodeMCU1](content/NodeMCU1.png)
 * Select the port corresponding to the wcuusb port and ensure the baud rate is 115200 (and other specs are set per the screenshot).  ![Portselect](content/Portselect.png)
 
 ##Verify that your board works
@@ -39,11 +40,10 @@ Now let's setup your Firebase account
 
 ##Exercise 1
 Let's do the HelloWorld of the embedded world.
-	a. Under /exercises in this repository, open the “/dualblink/dualblink.ino” sketch.  
-	b. From the Arduino menu select Sketch->Upload.  
-	c. Verify the lights are blinking.  Congrats you have your first sketch running
-	NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  
-	On Mac cache is in /Users/<username>/Library/Arduino15 (just delete the directory
+..a. Under /exercises in this repository, open the “/dualblink/dualblink.ino” sketch.  
+..b. From the Arduino menu select Sketch->Upload.  
+..c. Verify the lights are blinking.  Congrats you have your first sketch running
+..NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  On Mac cache is in /Users/<username>/Library/Arduino15 (just delete the directory
 
 ##Exercise 2
 Now let’s get connected to your local wifi router.  NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.  
