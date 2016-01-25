@@ -1,60 +1,64 @@
 # ESP2866_12E Workshop
 Workshop exercises for the ESP2866 12E (NodeMCU 1.0)
 
-This workshop is based around using Arduino on the ESP2866 12E versus the NodeMCU (Lua) build that comes on it from the factory.
+This workshop is based around the ESP8266 ESP-12E using Arduino versus NodeMCU (Lua) build that comes on it from the factory.
 Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 
-Prerequisites:
+##Software Prerequisites
 
-Out of the box the NodeMCU 1.0 can be tested with default NodeLua 1.0 build.  This will verify that the hardware and WiFi is working correctly:
-1. The SSID of the board should be "DoitWifi", and the password is "12345678".
-2. Go to 192.168.1.1 and hit the D0 button to verify the board is working
+1. If using the latest Node MCU 1.0 ESP-12E from DoIt, you will need to ensure you have the CH341 driver installed.  This board uses the CH341 USB driver.
+* For Mac you can find the kext signed package [here](packages/CH34x_Install-KextSigned-Mac)
+* For Windows you can find the kext signed package [here](packages/CH341SER-Windows.zip)
+* The original source for the drivers checked in are [here.](http://tzapu.com/making-ch340-ch341-serial-adapters-work-under-el-capitan-os-x/CH34x_Install)
 
-The quickest way to get started is:
-0a. If using the ESP-12E, on a Mac you will need to ensure you have the CH341 driver 
-Download latest signed drivers which does not require the kext disablement
-http://tzapu.com/making-ch340-ch341-serial-adapters-work-under-el-capitan-os-x/
-CH34x_Install
+2. If you already have Arduino IDE installed make sure you upgrade to 1.6.7.  If not download from arduino.cc the [latest arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
 
-1. If you already have Arduino IDE installed make sure you upgrade to 1.6.7.  If not download from arduino.cc the latest arduino IDE
+3. Launch the Arduino IDE and let's make sure you have the right board support package for the ESP-12E.  
+* In the Arduino menu select Preferences and enter the following url: `http://arduino.esp8266.com/staging/package_esp8266com_index.json`  ~~http://arduino.esp8266.com/stable/package_esp8266com_index.json~~ in the Additional Boards Manager URL's box.  ![Board JSON](content/BSPjsonurl.png) 
+* Save and close the dialog
+* In the Arduino IDE goto Tools->Boards->'Board Manager' and then in list scroll down and select esp8266 and choose install. ![BoardManager](content/ESPBSP.png)
+* Then restart the IDE and select the Tools->Boards->'nodeMCU 1.0'  (for the bangood board or others per what you have selected) ![NodeMCU1](content/NodeMCU1.png)
+* Select the port corresponding to the wcuusb port and ensure the baud rate is 115200 (and other specs are set per the screenshot).  ![Portselect](content/Portselect.png)
 
-2. Connect the board with a USB cable to your computer 
+##Verify that your board works
+Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.  This will verify that the hardware and WiFi is working correctly:
+1. Plug the board into a USB port to power it
+2. The SSID of the board should be "DoitWifi", and the password is "12345678"
+3. On your computer with Wifi enabled, open a browser at 192.168.1.1
+4. Click the D0 button in the HTML form to verify the light turns on and the board is working
 
-Go to Adafruit site https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/using-arduino-ide 
 
-3. Here you can see how to add a new board by installing the BOARD PACKAGE: Preferences Arduino IDE (1.6.7 or higher) , additional board manager url: http://arduino.esp8266.com/stable/package_esp8266com_index.json
-Scratch that and use this one instead to get SSL support from the bleeding edge (until merged in)
-http://arduino.esp8266.com/staging/package_esp8266com_index.json
+##Setup Firebase 
+Now let's setup your Firebase account
+1. Go to https://www.firebase.com/ and create a firebase account (you can use your Google login or your email)
+2. Login and note your firebase host name (not the full url just the host name)
+3. In the firebase console, clink the Data icon on the left.  Hover over the top node showing in the tree view and Click "+" to add a new key and value pair  - name:"test_get" and value:"testgetvalue"
+4. Verify that Firebase works for both GET and POST
+		curl --trace - -X GET https://<yourfirebaseurl>/test_get.json
+		curl --trace - -X POST -d '{ "postkey":"postvalue"}' https://<yourfirebaseurl>/test_get.json
 
-4. Then goto boards and 'Board Manager' and then in list scroll down and select esp8266 and choose install. 
-
-5. Then restart the IDE and select the board: 'nodeMCU 1.0'  (for the bangood board or others per what you have selected)
-
-6. Port must be /dev/cu.wch* etc. as is written in the product description (maybe you should add drivers that are listed there.) 
-
-7. Let's do the HelloWorld of the embedded world.
+##Exercise 1
+Let's do the HelloWorld of the embedded world.
 	a. Under /exercises in this repository, open the “/dualblink/dualblink.ino” sketch.  
 	b. From the Arduino menu select Sketch->Upload.  
 	c. Verify the lights are blinking.  Congrats you have your first sketch running
 	NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  
 	On Mac cache is in /Users/<username>/Library/Arduino15 (just delete the directory
 
-8. Now let’s get connected to your local wifi router.  NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.  
+##Exercise 2
+Now let’s get connected to your local wifi router.  NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.  
 	a. Under /exercises in this repository, open the “/wificonnect/wificonnect.ino” sketch.
 	b. Open the Serial Monitor (magnifying glass icon in upper right of code window).
 	c. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
 	d. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
 	e. Verify the output in the Serial Monitor window says connected.
 
-9. Now let's setup your Firebase account.  
-  	a. Note your firebase host name (not the full url just the host name)
-	b. In the firebase console, clink the Data icon on the left.  Hover over the top node showing in the tree view and Click "+" to add a new key and value pair  - name:"test_get" and value:"testgetvalue"
-	c. Pull down the SHA fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm
-	d. Verify that Firebase works for both GET and POST
-		curl --trace - -X GET https://<yourfirebaseurl>/test_get.json
-		curl --trace - -X POST -d '{ "postkey":"postvalue"}' https://<yourfirebaseurl>/test_get.json
 
-10. Now let's test HTTP GET and HTTP POST to an online backend as a service provider called firebase.
+##Exercise 3
+1. Verify the Firebase SSL SHA1 fingerpting
+	a. Login to your Firebase account.  Select your application and Manage App.  In the url bar you will see your firebase url.  Pull down the SHA1 fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm (paste in your firebase url)
+
+2. Now let's test HTTP GET and HTTP POST to an online backend as a service provider called firebase.
 	a. Under /exercises in this repository, open the “/httprequests/httprequests.ino” sketch.
 	b. Open the Serial Monitor (magnifying glass icon in upper right of code window).
 	c. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
@@ -62,9 +66,12 @@ http://arduino.esp8266.com/staging/package_esp8266com_index.json
 	e. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
 	f. Verify the output in the Serial Monitor window shows a successful GET request as well as POST request.
 
-11. Now lets read from our sensor.
+##Exercise 4
+Now lets read from our sensor.
 
-12. Now lets write what we read from the sensor to Firebase in a loop.
+##Exercise 5
+Now lets write what we read from the sensor to Firebase in a loop.
 
-13. Now let's do something useful with the data we are sending up to Firebase
+##Exercise 6
+Now let's do something useful with the data we are sending up to Firebase
 
