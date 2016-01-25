@@ -40,31 +40,33 @@ Now let's setup your Firebase account
 
 ##Exercise 1
 Let's do the HelloWorld of the embedded world.
-..a. Under /exercises in this repository, open the “/dualblink/dualblink.ino” sketch.  
-..b. From the Arduino menu select Sketch->Upload.  
-..c. Verify the lights are blinking.  Congrats you have your first sketch running
-..NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  On Mac cache is in /Users/<username>/Library/Arduino15 (just delete the directory
+1. Under /exercises in this repository, open the '/dualblink/dualblink.ino` sketch.  
+2. From the Arduino menu select Sketch->Upload.  ![Upload](content/Upload.png)
+3. Verify the lights are blinking.  Congrats you have your first sketch running
+> NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  On Mac cache is in `/Users/<username>/Library/Arduino15` (just delete the directory)
 
 ##Exercise 2
 Now let’s get connected to your local wifi router.  NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.  
-	a. Under /exercises in this repository, open the “/wificonnect/wificonnect.ino” sketch.
-	b. Open the Serial Monitor (magnifying glass icon in upper right of code window).
-	c. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
-	d. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
-	e. Verify the output in the Serial Monitor window says connected.
+1. Under /exercises in this repository, open the '/wificonnect/wificonnect.ino` sketch.
+2. Open the Serial Monitor (magnifying glass icon in upper right of code window).
+3. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
+4. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+5. Verify the output in the Serial Monitor window says connected.
 
 
 ##Exercise 3
 1. Verify the Firebase SSL SHA1 fingerpting
-	a. Login to your Firebase account.  Select your application and Manage App.  In the url bar you will see your firebase url.  Pull down the SHA1 fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm (paste in your firebase url)
+	1. Login to your Firebase account.  
+	2. Select your application and Manage App.  
+	3. In the url bar you will see your firebase url.  Pull down the SHA1 fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm (paste in your firebase url)
 
 2. Now let's test HTTP GET and HTTP POST to an online backend as a service provider called firebase.
-	a. Under /exercises in this repository, open the “/httprequests/httprequests.ino” sketch.
-	b. Open the Serial Monitor (magnifying glass icon in upper right of code window).
-	c. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
-	d. If you are using Firebase as outlined in step 9 above, then in your open sketch set BAAS_HOST to the firebase host name that is associate with your account.  NOTE: You may also need to set the Hexadecimal BAAS_FINGERPRINT variable to be the Fingerprint you obtained in 9c (if the SSL cert has changed).
-	e. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
-	f. Verify the output in the Serial Monitor window shows a successful GET request as well as POST request.
+	1. Under /exercises in this repository, open the `/httprequests/httprequests.ino` sketch.
+	2. Open the Serial Monitor (magnifying glass icon in upper right of code window).
+	3. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
+	4. If you are using Firebase as outlined in step 9 above, then in your open sketch set BAAS_HOST to the firebase host name that is associate with your account.  NOTE: You may also need to set the Hexadecimal BAAS_FINGERPRINT variable to be the Fingerprint you obtained in 9c (if the SSL cert has changed).
+	5. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+	6. Verify the output in the Serial Monitor window shows a successful GET request as well as POST request.
 
 ##Exercise 4
 Now lets read from our sensor.
