@@ -8,8 +8,8 @@ Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 
 1. If using the latest Node MCU 1.0 ESP-12E from DoIt, you will need to ensure you have the CH341 driver installed.  This board uses the CH341 USB driver.
 * For Mac you can find the kext signed package [here](packages/CH34x_Install-KextSigned-Mac)
-* For Windows you can find the kext signed package [here](packages/CH341SER-Windows.zip)
-* The original source for the drivers checked in are [here.](http://tzapu.com/making-ch340-ch341-serial-adapters-work-under-el-capitan-os-x/CH34x_Install)
+* For Windows you can find the kext signed package [here](packages) and download 'CH341SER-Windows.zip'
+* The original place these drivers were uploaded are [here.](http://blog.sengotta.net/wp-content/uploads/2015/11/CH34x_Install.zip)
 
 2. If you already have Arduino IDE installed make sure you upgrade to 1.6.7.  If not download from arduino.cc the [latest arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
 
@@ -40,18 +40,21 @@ Now let's setup your Firebase account
 
 ##Exercise 1
 Let's do the HelloWorld of the embedded world.
+
 1. Under /exercises in this repository, open the '/dualblink/dualblink.ino` sketch.  
 2. From the Arduino menu select Sketch->Upload.  ![Upload](content/Upload.png)
 3. Verify the lights are blinking.  Congrats you have your first sketch running
 > NOTE: If there’s an issue with compiling might need to blow away cache directory and start over from step 3.  On Mac cache is in `/Users/<username>/Library/Arduino15` (just delete the directory)
 
 ##Exercise 2
-Now let’s get connected to your local wifi router.  NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.  
+Now let’s get connected to your local wifi router.  
+> NOTE: You will need to ensure that your local wifi router does not have any kind of web auth/proxy auth enabled and that you know the SSID and Password.
+
 1. Under /exercises in this repository, open the '/wificonnect/wificonnect.ino` sketch.
 2. Open the Serial Monitor (magnifying glass icon in upper right of code window).
-3. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
+3. At the top of your open sketch, set `WIFI_SSID` and `WIFI_PASS` variables to your local Wifi SSID and Password respectively
 4. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
-5. Verify the output in the Serial Monitor window says connected.
+5. Verify the output in the Serial Monitor window says `connected`.
 
 
 ##Exercise 3
