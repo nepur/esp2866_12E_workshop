@@ -23,6 +23,7 @@ Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 
 ##Verify that your board works
 Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.  This will verify that the hardware and WiFi is working correctly:
+
 1. Plug the board into a USB port to power it
 2. The SSID of the board should be "DoitWifi", and the password is "12345678"
 3. On your computer with Wifi enabled, open a browser at 192.168.1.1
@@ -31,6 +32,7 @@ Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.
 
 ##Setup Firebase 
 Now let's setup your Firebase account
+
 1. Go to https://www.firebase.com/ and create a firebase account (you can use your Google login or your email)
 2. Login and note your firebase host name (not the full url just the host name)
 3. In the firebase console, clink the Data icon on the left.  Hover over the top node showing in the tree view and Click "+" to add a new key and value pair  - name:"test_get" and value:"testgetvalue"
@@ -58,12 +60,13 @@ Now let’s get connected to your local wifi router.
 
 
 ##Exercise 3
-1. Verify the Firebase SSL SHA1 fingerpting
+1. Ensure you setup yoru Firebase account as outlined in the prerequisite section.
+2. Verify the Firebase SHA1 fingerprint
 	1. Login to your Firebase account.  
-	2. Select your application and Manage App.  
-	3. In the url bar you will see your firebase url.  Pull down the SHA1 fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm (paste in your firebase url)
-
-2. Now let's test HTTP GET and HTTP POST to an online backend as a service provider called firebase.
+	2. Select your Application and click Manage App.  
+	3. In the url bar you will see your firebase url.  Copy it.
+	4. Pull down the SHA1 fingerprint for your firebase url.  Use this site to get your fingerprint: https://www.grc.com/fingerprints.htm (paste in your firebase url from above)
+3. Now let's test HTTP GET and HTTP POST to Firebase.
 	1. Under /exercises in this repository, open the `/httprequests/httprequests.ino` sketch.
 	2. Open the Serial Monitor (magnifying glass icon in upper right of code window).
 	3. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
