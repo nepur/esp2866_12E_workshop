@@ -4,6 +4,14 @@ Workshop exercises for the ESP2866 12E (NodeMCU 1.0)
 This workshop is based around the ESP8266 ESP-12E using Arduino versus NodeMCU (Lua) build that comes on it from the factory.
 Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 
+##Verify that your board works
+Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.  This will verify that the hardware and WiFi is working correctly:
+
+1. Plug the board into a USB port to power it
+2. The SSID of the board should be "DoitWifi", and the password is "12345678"
+3. On your computer with Wifi enabled, open a browser at 192.168.1.1
+4. Click the D0 button in the HTML form to verify the light turns on and the board is working
+
 ##Software Prerequisites
 
 1. If using the latest Node MCU 1.0 ESP-12E from DoIt, you will need to ensure you have the CH341 driver installed.  This board uses the CH341 USB driver.
@@ -20,15 +28,6 @@ Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 * Make sure to restart the IDE
 * Make sure to select the proper board.  Select the Tools->Boards->'nodeMCU 1.0'  (for the bangood board or others per what you have selected) ![NodeMCU1](content/NodeMCU1.png)
 * Select the port corresponding to the wcuusb port and ensure the baud rate is 115200 (and other specs are set per the screenshot).  ![Portselect](content/Portselect.png)
-
-##Verify that your board works
-Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.  This will verify that the hardware and WiFi is working correctly:
-
-1. Plug the board into a USB port to power it
-2. The SSID of the board should be "DoitWifi", and the password is "12345678"
-3. On your computer with Wifi enabled, open a browser at 192.168.1.1
-4. Click the D0 button in the HTML form to verify the light turns on and the board is working
-
 
 ##Setup Firebase 
 Now let's setup your Firebase account
@@ -75,11 +74,15 @@ Now let’s get connected to your local wifi router.
 	6. Verify the output in the Serial Monitor window shows a successful GET request as well as POST request.
 
 ##Exercise 4
-Now lets read from our sensor.
+Now lets double check the GPIO pins are working and mapped correctly.
+Connect the jumper wires as show between "D1" and "D2" and upload the sketch to see if the output alternates in sequence with the LED also.
 
 ##Exercise 5
-Now lets write what we read from the sensor to Firebase in a loop.
+Now let's read from the ultrasonic sensor in a loop
 
 ##Exercise 6
+Now lets write what we read from the sensor to Firebase in a loop.
+
+##Exercise 7
 Now let's do something useful with the data we are sending up to Firebase
 
