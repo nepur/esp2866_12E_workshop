@@ -8,8 +8,8 @@ Arduino on ESP 12-E.  This will work very similarly to other arduinos.
 Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.  This will verify that the hardware and WiFi is working correctly:
 
 1. Plug the board into a USB port to power it
-2. The SSID of the board should be "DoitWifi", and the password is "12345678"
-3. On your computer with Wifi enabled, open a browser at 192.168.1.1
+2. The SSID of the board should be "DoitWifi", and the password is "12345678".  On your computer with Wifi enabled connect to this wifi SSID and enter the password.  
+3. Once your computer is connected, open a browser at 192.168.1.1
 4. Click the D0 button in the HTML form to verify the light turns on and the board is working
 
 ##Software Prerequisites
