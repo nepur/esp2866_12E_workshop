@@ -22,7 +22,7 @@ Out of the box the NodeMCU 1.0 can be tested with the default NodeLua 1.0 build.
 2. If you already have Arduino IDE installed make sure you upgrade to 1.6.7.  If not download from arduino.cc the [latest arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
 
 3. Launch the Arduino IDE and let's make sure you have the right board support package for the ESP-12E.  
-* In the Arduino menu select Preferences and enter the following url: `http://arduino.esp8266.com/staging/package_esp8266com_index.json`  ~~http://arduino.esp8266.com/stable/package_esp8266com_index.json~~ in the Additional Boards Manager URL's box.  ![Board JSON](content/BSPjsonurl.png) 
+* In the Arduino menu select Preferences and enter the following url: ~~`http://arduino.esp8266.com/staging/package_esp8266com_index.json`~~  `http://arduino.esp8266.com/stable/package_esp8266com_index.json` in the Additional Boards Manager URL's box.  ![Board JSON](content/BSPjsonurl.png) 
 * Save and close the dialog
 * In the Arduino IDE goto Tools->Boards->'Board Manager' and then in list scroll down and select esp8266 and choose install. ![BoardManager](content/ESPBSP.png)
 * Make sure to restart the IDE
