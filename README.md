@@ -59,6 +59,7 @@ Now let’s get connected to your local wifi router.
 
 
 ##Exercise 3
+
 1. Ensure you setup yoru Firebase account as outlined in the prerequisite section.
 2. Verify the Firebase SHA1 fingerprint
 	1. Login to your Firebase account.  
@@ -75,6 +76,7 @@ Now let’s get connected to your local wifi router.
 
 ##Exercise 4
 Now lets double check the GPIO pins are working and mapped correctly.
+
 1. Connect a jumper wire as show between "D1" and "D2" on the ESP 8266 12E board. ![GPIOTest](content/GPIOTest.JPG) 
 2. Under /exercises in this repository, open the /testgpio/testgpio.ino sketch.
 3. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
@@ -82,6 +84,7 @@ Now lets double check the GPIO pins are working and mapped correctly.
 
 ##Exercise 5
 Now let's read from the ultrasonic sensor in a loop.
+
 1. Connect 4 jumper wires between the ESP8266 board and the HC-SR04 Ultrasonic sensor as shown.  
 	1. Vin from ESP8266 to VCC on HC-SR04
 	2. Gnd from ESP8266 to GND on HC-SR04
