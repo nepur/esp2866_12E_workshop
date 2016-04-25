@@ -75,14 +75,30 @@ Now let’s get connected to your local wifi router.
 
 ##Exercise 4
 Now lets double check the GPIO pins are working and mapped correctly.
-Connect the jumper wires as show between "D1" and "D2" and upload the sketch to see if the output alternates in sequence with the LED also.
+1. Connect a jumper wire as show between "D1" and "D2" on the ESP 8266 12E board. ![GPIOTest](content/GPIOTest.JPG) 
+2. Under /exercises in this repository, open the /testgpio/testgpio.ino sketch.
+3. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+4. Check to see if the output in the Serial Monitor windows alternates in sequence between 1 (on) and 0 (off) with the LED also.
 
 ##Exercise 5
-Now let's read from the ultrasonic sensor in a loop
+Now let's read from the ultrasonic sensor in a loop.
+1. Connect 4 jumper wires between the ESP8266 board and the HC-SR04 Ultrasonic sensor as shown.  
+	1. Vin from ESP8266 to VCC on HC-SR04
+	2. Gnd from ESP8266 to GND on HC-SR04
+	3. D1 from ESP8266 to TRIG on HC-SR04
+	4. D2 from ESP8266 to ECHO on HC-SR04
+![ReadUltrasonicFront](content/ReadUltrasonicFront.JPG)
+![ReadUltrasonicBack](content/ReadUltrasonicBack.JPG)
+2. Under /exercises in this repository, open the /readultrasonic/readultrasonic.ino sketch.
+3. Place the Ultrasonic Sensor with the transmitter/receiver facing up.
+4. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+5. Hold & move your hand above the Ultrasonic sensor and note the distance calculations in the Serial Monitor output window.
+6. Check to see if the output in the Serial Monitor is roughly accurate.
 
 ##Exercise 6
 Now lets write what we read from the sensor to Firebase in a loop.
 
 ##Exercise 7
-Now let's do something useful with the data we are sending up to Firebase
+Now let's do something useful with the data we are sending up to Firebase.  
+This is an exercise for you to create, but you might want to try something out with [Zapier](https://zapier.com/zapbook/firebase/) 
 
