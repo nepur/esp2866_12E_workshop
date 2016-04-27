@@ -70,7 +70,7 @@ Now let’s get connected to your local wifi router.
 	1. Under /exercises in this repository, open the `/httprequests/httprequests.ino` sketch.
 	2. Open the Serial Monitor (magnifying glass icon in upper right of code window).
 	3. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
-	4. If you are using Firebase as outlined in step 9 above, then in your open sketch set BAAS_HOST to the firebase host name that is associate with your account.  NOTE: You may also need to set the Hexadecimal BAAS_FINGERPRINT variable to be the Fingerprint you obtained in 9c (if the SSL cert has changed).
+	4. If you are using Firebase as outlined in step 2 above, then in your open sketch set BAAS_HOST to the firebase host name that is associate with your account.  NOTE: You may also need to set the Hexadecimal BAAS_FINGERPRINT variable to be the Fingerprint you obtained in step 2->4 above (if the SSL cert has changed).
 	5. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
 	6. Verify the output in the Serial Monitor window shows a successful GET request as well as POST request.
 
@@ -100,6 +100,15 @@ Now let's read from the ultrasonic sensor in a loop.
 
 ##Exercise 6
 Now lets write what we read from the sensor to Firebase in a loop.
+
+1. Retain the setup from Exercise 5. 
+2. Under /exercises in this repository, open the /sendtofb/sendtofb.ino sketch.
+3. At the top of your open sketch, set WIFI_SSID and WIFI_PASS variables to your local Wifi SSID and Password respectively
+4. If you are using Firebase as outlined in exercise 3 above, then in your open sketch set BAAS_HOST to the firebase host name that is associate with your account.  NOTE: You should also make sure that BAAS_FINGERPRINT variable to be the Fingerprint you obtained in exercise 3.
+3. From the Arduino menu select Sketch->Upload.  Verify that the sketch compiled with no errors.
+4. Check to see if the output in the Serial Monitor windows shows successful POST requests to firebase.  In your firebase console you should see new values appear every couple of seconds as the program samples the distance sensor.
+5. Move your hand closer and further from the distance sensor and observe the change in values in firebase.  There's a range limit emprically between about 1 inch and 15 inches.  YMMV.
+6. Optional: Tune the program further to reduce the noisy readings from the distance sensor and also to address more accurate timing/distance calculations of pusle calculation if you wish - you'll have to research this.
 
 ##Exercise 7
 Now let's do something useful with the data we are sending up to Firebase.  
