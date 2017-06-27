@@ -16,11 +16,11 @@ const short int BUILTIN_LED2 = 16;//GPIO16
 const short int TRIG = 5; //D1
 const short int ECHO = 4; //D2
 
-char WIFI_SSID[] = "YOUR_WIFI_SSID_HERE";
+char WIFI_SSID[] = "YOUR_SSID_HERE";
 char WIFI_PASS[] = "YOUR_WIFI_PASS_HERE";
 
 // NOTE: Leave off the https part.  Just the Host NOT the URL
-char BAAS_HOST[] = "YOUR_FIREBASE_HOST";
+char BAAS_HOST[] = "YOUR_FIREBASE_HOST_HERE";
 int BAAS_PORT = 443;
 // Use web browser to view SSL cert and get SHA1 from it
 char BAAS_FINGERPRINT[] = "7A 54 06 9B DC 7A 25 B3 86 8D 66 53 48 2C 0B 96 42 C7 B3 0A";
